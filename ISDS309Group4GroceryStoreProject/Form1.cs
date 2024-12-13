@@ -22,10 +22,10 @@ namespace ISDS309Group4GroceryStoreProject
 
         private void Login_Load(object sender, EventArgs e)
         {
-            if(!Directory.Exists("ProjectData"))
+            if (!Directory.Exists("ProjectData"))
             {
                 InventoryInfo inventoryInfo = new InventoryInfo();
-                string dataFolder = "ProjectData", inv = "", DELIM = ",";
+                string dataFolder = "ProjectData", inv = "", DELIM = ",", path = "";
                 int row = 0, invListLength = inventoryInfo.invList.GetLength(0);
                 //int consoleWidth = Console.WindowWidth, spacesToPad = (consoleWidth - line.Length) / 2;
 
@@ -43,19 +43,44 @@ namespace ISDS309Group4GroceryStoreProject
 
                 writer.WriteLine("This is a list of all the inventory available: ");
 
-
                 while (row < invListLength)
                 {
                     //Write each collumn of data for the row onto the file
-                    writer.Write(inventoryInfo.invList[row,0] + DELIM);
-                    writer.Write(inventoryInfo.invList[row,1] + DELIM);
-                    writer.WriteLine(inventoryInfo.invList[row,2]);
+                    writer.Write(inventoryInfo.invList[row, 0] + DELIM);
+                    writer.Write(inventoryInfo.invList[row, 1] + DELIM);
+                    writer.WriteLine(inventoryInfo.invList[row, 2]);
                     //then move onto the next row
                     ++row;
                 }
-                
                 writer.Close();
                 outFile.Close();
+
+
+                //Create Admin Folder
+                path = Path.Combine(dataFolder, "AdminFiles");
+                Directory.CreateDirectory(path);
+
+                //Add File to it
+                inv = Path.Combine(path, "TransactionsHistory.txt");
+                outFile = new FileStream(inv,
+                        FileMode.Create,
+                        FileAccess.Write);
+                //Transaction History will mostly be edited in other tabs
+                writer = new StreamWriter(outFile);
+
+                writer.WriteLine("This is a list of all the users, their login info, and their transaction history: \n"
+                                + "--------------------------------------------------------------------------------");
+
+                writer.Close();
+                outFile.Close();
+
+
+                //Create Users folder
+                path = Path.Combine(dataFolder, "UserInfo");
+                Directory.CreateDirectory(path);
+                //in case we pursue the optional creating accounts
+
+
             }
 
         }

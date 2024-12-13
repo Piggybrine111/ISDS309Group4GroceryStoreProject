@@ -86,5 +86,10 @@ namespace ISDS309Group4GroceryStoreProject
         {
 
         }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

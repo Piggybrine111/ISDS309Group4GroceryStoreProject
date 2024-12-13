@@ -72,5 +72,10 @@ namespace ISDS309Group4GroceryStoreProject
         {
             Application.Exit();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

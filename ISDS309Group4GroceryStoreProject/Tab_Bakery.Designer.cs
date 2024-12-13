@@ -106,6 +106,7 @@
             pictureBox1.Size = new Size(1192, 673);
             pictureBox1.TabIndex = 13;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // Tab_Bakery
             // 

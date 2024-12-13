@@ -35,6 +35,7 @@
             tabDrinks = new Button();
             tabSnacks = new Button();
             tabBakery = new Button();
+            label1 = new Label();
             SuspendLayout();
             // 
             // tabMeat
@@ -112,6 +113,15 @@
             tabBakery.UseVisualStyleBackColor = true;
             tabBakery.Click += tabBakery_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(973, 156);
+            label1.Name = "label1";
+            label1.Size = new Size(144, 45);
+            label1.TabIndex = 7;
+            label1.Text = "label1\r\nTest\r\nHow many layers can it fit\r\n";
+            // 
             // Tab_Home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -119,6 +129,7 @@
             BackgroundImage = Properties.Resources.homepage;
             BackgroundImageLayout = ImageLayout.None;
             ClientSize = new Size(1210, 676);
+            Controls.Add(label1);
             Controls.Add(tabDrinks);
             Controls.Add(tabSnacks);
             Controls.Add(tabBakery);
@@ -145,5 +156,6 @@
         private Button tabDrinks;
         private Button tabSnacks;
         private Button tabBakery;
+        private Label label1;
     }
 }
